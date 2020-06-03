@@ -1,0 +1,28 @@
+@import '../../../../assets/scss/variables';
+
+.container {
+  display: grid;
+  grid-template-rows: 220px 40px 1fr;
+  height: 100%;
+  width: 100%;
+
+  .header {
+    position: relative;
+    background-color: $gray;
+    height: 90%;
+
+    img {
+      background: gray;
+      position: absolute;
+      bottom: -20px;
+      left: calc(50% - 40px);
+      height: 80px;
+      width: 80px;
+      border-radius: 50px;
+    }
+  }
+
+  h4 {
+    text-align: center;
+  }
+}

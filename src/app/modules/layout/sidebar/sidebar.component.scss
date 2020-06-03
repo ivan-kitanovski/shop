@@ -1,0 +1,58 @@
+@import '../../../../assets/scss/variables';
+
+.container {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: $zSidebar;
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    padding: 10px 0;
+    background-color: #fff;
+    z-index: $zSidebar;
+    max-width: 250px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 50px;
+
+    img {
+      height: 50px;
+      width: 50px;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+
+    ul {
+      list-style-type:none;
+    }
+
+    .item {
+      margin-bottom: 10px;
+      a {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}

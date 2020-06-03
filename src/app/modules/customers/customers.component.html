@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Customers</h2>
+  <cdk-virtual-scroll-viewport [itemSize]="customers.length">
+    <app-customer-item
+      *cdkVirtualFor="let customer of customers"
+      [customer]="customer"
+    ></app-customer-item>
+  </cdk-virtual-scroll-viewport>
+</div>

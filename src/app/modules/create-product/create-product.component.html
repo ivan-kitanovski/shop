@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="form" [formGroup]="productForm">
+    <h4>Create product</h4>
+
+    <div class="wrapper">
+      <input
+        class="input"
+        type="text"
+        formControlName="name"
+        placeholder="Name"
+        required
+      />
+      <input
+        class="input"
+        type="number"
+        formControlName="price"
+        placeholder="Price"
+        required
+      />
+
+      <button class="button" (click)="createProduct()">Create</button>
+    </div>
+  </form>
+</div>
+<app-modal
+  [isActive]="isModalActive"
+  [title]="'Create product'"
+  [text]="'Would you like to create a new product?'"
+  (cancel)="onCancel()"
+  (confirm)="onConfirm()"
+></app-modal>

@@ -1,0 +1,14 @@
+@import '../variables';
+
+.button {
+  border: 0;
+  height: 40px;
+  padding: 10px;
+  color: #fff;
+  background-color: $blueDark;
+  border-radius: 5px;
+
+  &.red {
+    background-color: $red;
+  }
+}

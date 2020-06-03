@@ -1,0 +1,56 @@
+<div
+  class="container"
+  [ngClass]="{
+    'list-view': activeMode === modes.LIST,
+    'grid-view': activeMode === modes.GRID,
+    'mix-view': activeMode === modes.MIX
+  }"
+>
+  <div class="toolbar">
+    <div class="title">
+      <p>Mode:</p>
+    </div>
+    <div class="icon-container">
+      <div
+        class="icon-wrapper"
+        [ngClass]="{ active: activeMode === modes.GRID }"
+      >
+        <fa-icon
+          [icon]="faTh"
+          size="lg"
+          (click)="changeMode(modes.GRID)"
+        ></fa-icon>
+      </div>
+      <div
+        class="icon-wrapper"
+        [ngClass]="{ active: activeMode === modes.LIST }"
+      >
+        <fa-icon
+          [icon]="faList"
+          size="lg"
+          (click)="changeMode(modes.LIST)"
+        ></fa-icon>
+      </div>
+      <div
+        class="icon-wrapper"
+        [ngClass]="{ active: activeMode === modes.MIX }"
+      >
+        <fa-icon
+          [icon]="faGripLines"
+          size="lg"
+          (click)="changeMode(modes.MIX)"
+        ></fa-icon>
+      </div>
+    </div>
+  </div>
+  <app-product-list
+    *ngIf="activeMode === modes.MIX || activeMode === modes.LIST"
+    [products]="products"
+    (deleteProduct)="deleteProductHandler($event)"
+  ></app-product-list>
+  <app-product-grid
+    *ngIf="activeMode === modes.MIX || activeMode === modes.GRID"
+    [products]="products"
+    (deleteProduct)="deleteProductHandler($event)"
+  ></app-product-grid>
+</div>

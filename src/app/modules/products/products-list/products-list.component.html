@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="header">
+    <h4>List view</h4>
+  </div>
+  <cdk-virtual-scroll-viewport [itemSize]="products.length">
+    <app-product-list-item
+      *cdkVirtualFor="let product of products"
+      [product]="product"
+      [canDelete]="canDelete"
+      (deleteProduct)="onDeleteProduct(product.id)"
+    ></app-product-list-item>
+  </cdk-virtual-scroll-viewport>
+</div>

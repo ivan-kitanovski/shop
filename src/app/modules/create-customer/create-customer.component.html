@@ -1,0 +1,31 @@
+<div class="container">
+  <form class="form" [formGroup]="customerForm">
+    <h4>Create customer</h4>
+
+    <div class="wrapper">
+      <input
+        class="input"
+        type="text"
+        formControlName="name"
+        placeholder="Name"
+        required
+      />
+      <input
+        class="input"
+        type="email"
+        formControlName="email"
+        placeholder="Email"
+        required
+      />
+
+      <button class="button" (click)="createCustomer()">Create</button>
+    </div>
+  </form>
+</div>
+<app-modal
+  [isActive]="isModalActive"
+  [title]="'Create customer'"
+  [text]="'Would you like to create a new customer?'"
+  (cancel)="onCancel()"
+  (confirm)="onConfirm()"
+></app-modal>

@@ -1,0 +1,24 @@
+<div class="container">
+  <form class="form" [formGroup]="loginForm">
+    <h4>Fill in the form</h4>
+
+    <div class="wrapper">
+      <input
+        class="input"
+        type="text"
+        formControlName="username"
+        placeholder="Username"
+        required
+      />
+      <input
+        class="input"
+        type="password"
+        formControlName="password"
+        placeholder="Password"
+        required
+      />
+
+      <button class="button" (click)="login()" [disabled]="isDisabled">Login</button>
+    </div>
+  </form>
+</div>

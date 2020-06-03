@@ -1,0 +1,11 @@
+@import '../variables';
+
+.form {
+  display: grid;
+  grid-template-rows: 20px 1fr;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  background-color: $blueLight;
+  border-radius: 5px;
+}

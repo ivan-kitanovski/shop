@@ -1,0 +1,38 @@
+@import "../../../../assets/scss/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  .wrapper {
+    width: 80%;
+    background: #fff;
+    z-index: $zModal;
+
+    .header {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      background-color: $gray;
+      font-size: 1.3rem;
+      color: #fff;
+      padding: 0 10px;
+    }
+
+    .info {
+      padding: 10px;
+    }
+
+    .button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+    }
+  }
+}

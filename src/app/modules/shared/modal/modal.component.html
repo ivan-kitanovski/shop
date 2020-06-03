@@ -1,0 +1,15 @@
+<div *ngIf="isActive" class="container">
+  <div class="wrapper">
+    <div class="header">
+      {{ title }}
+    </div>
+    <div class="info">
+      {{ text }}
+    </div>
+    <div class="button-wrapper">
+      <button class="button red" (click)="onCancel()">Cancel</button>
+      <button class="button" (click)="onConfirm()">Confirm</button>
+    </div>
+  </div>
+  <div class="backdrop"></div>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="isActive" class="container">
+  <div class="sidebar">
+    <div class="header">
+      <img src="../../../../assets/images/profile.png" alt="">
+      <p>{{ displayName }}</p>
+    </div>
+    <div class="items">
+      <ul>
+        <li class="item" *ngFor="let route of routes">
+          <a [routerLink]="route.tree" routerLinkActive="router-link-active" (click)="closeSidebar(route?.shouldLogout)">
+            {{ route.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="backdrop" (click)="closeSidebar(false)"></div>
+</div>
