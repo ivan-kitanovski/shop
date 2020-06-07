@@ -1,5 +1,15 @@
 <div class="container">
-  <h2>Customers</h2>
+  <div class="header">
+    <h2>Customers</h2>
+    <button class="btn primary" (click)="addCustomer()">Add customer</button>
+  </div>
+  <div class="table-header">
+    <div>Name</div>
+    <div>Email</div>
+    <div>Total</div>
+    <div>Count</div>
+    <div>Created Date</div>
+  </div>
   <cdk-virtual-scroll-viewport [itemSize]="customers.length">
     <app-customer-item
       *cdkVirtualFor="let customer of customers"
