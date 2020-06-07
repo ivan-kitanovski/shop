@@ -1,24 +1,31 @@
 <div class="container">
-  <form class="form" [formGroup]="loginForm">
-    <h4>Fill in the form</h4>
-
-    <div class="wrapper">
-      <input
-        class="input"
-        type="text"
-        formControlName="username"
-        placeholder="Username"
-        required
-      />
-      <input
-        class="input"
-        type="password"
-        formControlName="password"
-        placeholder="Password"
-        required
-      />
-
-      <button class="button" (click)="login()" [disabled]="isDisabled">Login</button>
+  <div class="wrapper">
+    <div class="header">
+      <p>Hello there, welcome to my demo</p>
     </div>
-  </form>
+    <form [formGroup]="loginForm">
+      <div class="input-wrapper">
+        <input
+          formControlName="username"
+          type="text" 
+          placeholder="Username"
+          required
+        />
+        <input
+          formControlName="password"
+          type="password" 
+          placeholder="Password"
+          required
+        />
+      </div>
+      <div class="button-wrapper">
+        <p class="forgot-pwd" (click)="onAlert('Just input any password')">Forgot your Password?</p>
+        <button class="btn gradient large" (click)="login()">Sign in</button>
+      </div>
+    </form>
+    <div class="footer">
+      <p>New Here ?</p>
+      <p class="underline" (click)="onAlert('Oops, missing feature')">Sign Up instead</p>
+    </div>
+  </div>
 </div>

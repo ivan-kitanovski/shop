@@ -45,4 +45,8 @@ export class LoginComponent implements OnInit {
       })
       .subscribe((user) => this.router.navigate(['products']));
   }
+
+  public onAlert(text: string) {
+    alert(text);
+  }
 }

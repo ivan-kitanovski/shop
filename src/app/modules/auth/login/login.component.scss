@@ -1,27 +1,100 @@
+@import '../../../../assets/scss/variables';
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  color: #fff;
+  background-image: linear-gradient(to right, #712e62, #712768, #70206e, #6d1976, #68127e);
 
-  form {
+  .wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr 70px;
+    padding: 30px;
+    height: 80%;
+    width: 350px;
+    background-color: $darkBlue;
+    border-radius: 20px;
+    box-shadow: 5px 10px 18px $darkBlue;
 
-    .wrapper {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      width: 90%;
+      height: 90%;
+    }
+
+    .header {
       display: flex;
-      flex-direction: column;
       align-items: center;
+
+      p {
+        font-size: 1.8rem;
+        color: $grayLight;
+      }
+    }
+
+    form {
+
+      div {
+        height: 50%;
+      }
+
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+          background-color: transparent;
+          border: 0;
+          border-bottom: 1px solid gray;
+          color: #fff;
+
+          &::placeholder {
+            color: gray;
+          }
+
+          &:focus::placeholder {
+            color: transparent;
+          }
+        }
+      }
+
+      .button-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .forgot-pwd {
+          text-decoration: underline;
+          font-size: 0.8rem;
+          color: $grayDarker;
+          cursor: pointer;
+        }
+      }
+    }
+
+
+    .footer {
+      display: flex;
+      align-items: flex-end;
       justify-content: center;
-    }
 
-    input {
-      margin-bottom: 15px;
-      width: 80%;
-    }
+      p {
+        font-size: 0.8rem;
+        color: $grayDarker;
+        margin-right: 3px;
 
-    button {
-      width: 80%;
-      margin-right: 10px;
+        &.underline {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

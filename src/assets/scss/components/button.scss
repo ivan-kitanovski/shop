@@ -12,3 +12,39 @@
     background-color: $red;
   }
 }
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  height: 40px;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+
+  // SIZES
+  &.small {
+    width: auto;
+  }
+
+  &.medium {
+    min-width: 120px;
+  }
+
+  &.large {
+    min-width: 170px;
+  }
+
+  // COLORS
+  &.gradient {
+    border: 5px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right top, #7f3dc5, #793cca, #733ccf, #6b3cd5, #623cda);
+    background-color: transparent;
+
+    &:hover {
+      background-image: linear-gradient(to right top, #7f3dc5, #793cca, #733ccf, #6b3cd5, #623cda);
+    }
+  }
+}
