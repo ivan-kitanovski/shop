@@ -1,12 +1,21 @@
-<div class="container" (click)="navigateToDetails()">
-  <div class="image">
-    <img>
+<div class="container">
+  <div class="image-wrapper">
+    <img />
+    <div>{{ customer.name }}</div>
   </div>
-  <div class="info">
-    <p class="title">{{ customer.name }}</p>
-    <p class="title">{{ customer.email }}</p>
-    <p class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, libero.
-    </p>
+  <div>
+    {{ customer.email }}
+  </div>
+  <div>
+    {{ customer.total }}$
+  </div>
+  <div>
+    {{ customer.purchasedProducts.length }}
+  </div>
+  <div class="date-wrapper">
+    <div>{{ customer.createdDate | date: "mediumDate" }}</div>
+    <div class="toolbar">
+      <fa-icon [icon]="faEdit" [size]="'large'" (click)="navigateToDetails()"></fa-icon>
+    </div>
   </div>
 </div>

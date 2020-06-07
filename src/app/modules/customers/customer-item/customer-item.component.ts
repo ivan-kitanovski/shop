@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Customer } from '../../core/models/customer.model';
 import { Router } from '@angular/router';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Customer } from '../../core/models/customer.model';
 
 @Component({
   selector: 'app-customer-item',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class CustomerItemComponent implements OnInit {
 
   @Input() customer: Customer = null;
+
+  faEdit = faEdit;
 
   constructor(private router: Router) { }
 
