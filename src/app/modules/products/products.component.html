@@ -8,7 +8,7 @@
 >
   <div class="toolbar">
     <div class="title">
-      <p>Mode:</p>
+      <p>Mode: {{ modeTitles[activeMode] }}</p>
     </div>
     <div class="icon-container">
       <div
@@ -48,6 +48,7 @@
     [products]="products"
     (deleteProduct)="deleteProductHandler($event)"
   ></app-product-list>
+  <div *ngIf="activeMode === modes.MIX" class="divider"></div>
   <app-product-grid
     *ngIf="activeMode === modes.MIX || activeMode === modes.GRID"
     [products]="products"

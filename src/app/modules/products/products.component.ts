@@ -11,6 +11,12 @@ const VIEW_MODE = {
   MIX: 'mixed',
 };
 
+const VIEW_MODE_TITLE = {
+  list: 'List',
+  grid: 'Grid',
+  mixed: 'Mixed',
+};
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -23,6 +29,7 @@ export class ProductsComponent implements OnInit {
   faList = faList;
   faGripLines = faGripLines;
   modes = VIEW_MODE;
+  modeTitles = VIEW_MODE_TITLE;
   activeMode = VIEW_MODE.MIX;
 
   constructor(
