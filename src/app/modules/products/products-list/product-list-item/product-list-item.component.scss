@@ -1,16 +1,34 @@
 @import '../../../../../assets/scss/platform';
 
 .container {
-  display: grid;
-  grid-template-columns: 200px 1fr;
+  display: flex;
   height: 200px;
-  width: 98%;
+  padding: 15px;
   margin: 10px;
   border-radius: 5px;
+  border: 1px solid $darkBlue;
+  background-color: #fff;
+  box-sizing: border-box;
+  background-color: $darkBlue;
+
+  .img-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 80%;
+      height: 80%;
+      background-image: url('../../../../../assets/images/placeholder.png');
+      background-position: center;
+    }
+  }
 
   .info {
+    flex: 2;
     padding: 10px;
-    color: #444;
+    color: $grayLight;
 
     .title {
       font-size: 1.2rem;
@@ -26,27 +44,11 @@
       font-size: 0.8rem;
       margin-bottom: 15px;
     }
-
-    button {
-      height: 30px;
-      width: 100px;
-      background-color: #ef5350;
-      color: #fff;
-      border: 0;
-
-      &:hover {
-        animation: pulse;
-        animation-duration: 2s;
-      }
-    }
   }
 
-  img {
-    height: 100%;
-    width: 200px;
-    background-image: url('../../../../../assets/images/placeholder.png');
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+  .button-wrapper {
+    display: flex;
+    justify-content: flex-end;
   }
 
 }

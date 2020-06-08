@@ -1,12 +1,15 @@
-<div class="container" [ngStyle]="{ 'background-color': color }">
-  <img />
+<div class="container">
+  <div class="img-wrapper">
+    <img />
+  </div>
   <div class="info">
     <p class="title">{{ product.name }}</p>
     <p class="price">{{ product.price | number: '1.2-2' }}$</p>
     <p class="description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis illo
-      deleniti a nostrum vero soluta!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, voluptates?
     </p>
-    <button *ngIf="canDelete" (click)="onDeleteProduct()">Delete</button>
+    <div class="button-wrapper">
+      <button *ngIf="canDelete" class="btn red medium" (click)="onDeleteProduct()">Delete</button>
+    </div>
   </div>
 </div>

@@ -1,16 +1,10 @@
 @import '../../../../assets/scss/variables';
 
 .container {
-  display: grid;
-  grid-template-rows: 30px auto;
   height: 100%;
-  background-color: $grayLightest;
+  background-image: linear-gradient(to right, #712e62, #712768, #70206e, #6d1976, #68127e);
 
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    background-color: $gray;
-    color: #fff;
+  cdk-virtual-scroll-viewport {
+    height: 100%;
   }
 }
