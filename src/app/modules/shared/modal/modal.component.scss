@@ -14,25 +14,35 @@
     width: 80%;
     background: #fff;
     z-index: $zModal;
+    border-radius: 5px;
 
     .header {
       display: flex;
       align-items: center;
-      height: 40px;
-      background-color: $gray;
-      font-size: 1.3rem;
+      height: 60px;
+      background-color: $dark;
+      font-size: 1.4rem;
       color: #fff;
       padding: 0 10px;
+      margin-bottom: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
 
     .info {
-      padding: 10px;
+      font-size: 1.2rem;
+      padding: 20px 10px;
+      border-bottom: 1px solid $grayLight;
     }
 
     .button-wrapper {
       display: flex;
       justify-content: flex-end;
       padding: 10px;
+
+      button {
+        margin-left: 15px;
+      }
     }
   }
 }

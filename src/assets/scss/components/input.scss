@@ -1,3 +1,5 @@
+@import '../variables';
+
 .input {
   width: 100%;
   padding: 10px;
@@ -16,10 +18,10 @@
   }
 
   &.invalid {
-    border-bottom-color: red;
+    border-bottom-color: $red;
 
     &::placeholder {
-      color: red;
+      color: $red;
     }
   }
 }
