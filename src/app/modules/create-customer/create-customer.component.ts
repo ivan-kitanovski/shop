@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomerApiService } from '../core/api/customer/customer-api.service';
 import { Customer } from '../core/models/customer.model';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-customer',
@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
 export class CreateCustomerComponent implements OnInit {
   public customerForm = this.formBuilder.group(
     {
-      name: ['', Validators.required],
-      email: [null, Validators.required],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      email: [null, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')]],
     },
     { updateOn: 'change' }
   );
   public isModalActive = false;
 
-  get name() {
-    return this.customerForm.get('name').value;
+  get nameControl() {
+    return this.customerForm.get('name');
   }
 
-  get email() {
-    return this.customerForm.get('email').value;
+  get emailControl() {
+    return this.customerForm.get('email');
   }
 
   constructor(
@@ -33,14 +33,19 @@ export class CreateCustomerComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   createCustomer() {
-    const customer = new Customer().assign({
-      name: this.name,
-      email: this.email
-    });
-    this.customerApiService.createCustomer(customer).subscribe(o => this.isModalActive = true);
+    this.nameControl.markAsTouched();
+    this.emailControl.markAsTouched();
+
+    if (this.customerForm.valid) {
+      const customer = new Customer().assign({
+        name: this.nameControl.value,
+        email: this.emailControl.value
+      });
+      this.customerApiService.createCustomer(customer).subscribe(o => this.isModalActive = true);
+    }
   }
 
   onConfirm() {

@@ -19,12 +19,12 @@ export class CreateProductComponent {
   );
   public isModalActive = false;
 
-  get name() {
-    return this.productForm.get('name').value;
+  get nameControl() {
+    return this.productForm.get('name');
   }
 
-  get price() {
-    return this.productForm.get('price').value;
+  get priceControl() {
+    return this.productForm.get('price');
   }
 
   constructor(
@@ -34,13 +34,18 @@ export class CreateProductComponent {
   ) {}
 
   createProduct() {
-    const product = new Product().assign({
-      name: this.name,
-      price: this.price,
-    });
-    this.productApiService
-      .createProduct(product)
-      .subscribe((o) => (this.isModalActive = true));
+    this.nameControl.markAsTouched();
+    this.priceControl.markAsTouched();
+
+    if (this.productForm.valid) {
+      const product = new Product().assign({
+        name: this.nameControl.value,
+        price: this.priceControl.value,
+      });
+      this.productApiService
+        .createProduct(product)
+        .subscribe((o) => (this.isModalActive = true));
+    }
   }
 
   onConfirm() {

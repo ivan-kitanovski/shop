@@ -1,6 +1,25 @@
 .input {
-  border: 0;
-  height: 40px;
+  width: 100%;
   padding: 10px;
-  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid gray;
+  color: #fff;
+
+  &::placeholder {
+    color: gray;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &.invalid {
+    border-bottom-color: red;
+
+    &::placeholder {
+      color: red;
+    }
+  }
 }

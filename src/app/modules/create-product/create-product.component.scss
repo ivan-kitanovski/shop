@@ -1,27 +1,45 @@
+@import '../../../assets/scss/variables';
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  color: #fff;
+  background-image: linear-gradient(to right, #712e62, #712768, #70206e, #6d1976, #68127e);
 
-  form {
+  .wrapper {
+    display: grid;
+    height: 50%;
+    width: 350px;
+    padding: 30px;
+    background-color: $darkBlue;
+    border-radius: 20px;
+    box-shadow: 5px 10px 18px $darkBlue;
 
-    .wrapper {
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+      width: 90%;
+      height: 90%;
+    }
+
+    .header {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
+
+      p {
+        font-size: 1.8rem;
+        color: $grayLight;
+      }
     }
 
-    input {
-      margin-bottom: 15px;
-      width: 80%;
-    }
-
-    button {
-      width: 80%;
-      margin-right: 10px;
+    form {
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
     }
   }
 }

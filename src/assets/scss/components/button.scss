@@ -41,6 +41,10 @@
     min-width: 170px;
   }
 
+  &.full {
+    width: 100%;
+  }
+
   // COLORS
   &.primary {
     background-color: $primary;

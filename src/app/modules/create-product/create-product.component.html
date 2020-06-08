@@ -1,26 +1,32 @@
 <div class="container">
-  <form class="form" [formGroup]="productForm">
-    <h4>Create product</h4>
-
-    <div class="wrapper">
-      <input
-        class="input"
-        type="text"
-        formControlName="name"
-        placeholder="Name"
-        required
-      />
-      <input
-        class="input"
-        type="number"
-        formControlName="price"
-        placeholder="Price"
-        required
-      />
-
-      <button class="button" (click)="createProduct()">Create</button>
+  <div class="wrapper">
+    <div class="header">
+      <p>Create customer</p>
     </div>
-  </form>
+    <form [formGroup]="productForm">
+      <div class="input-wrapper">
+        <input
+          formControlName="name"
+          class="input"
+          [ngClass]="{invalid: nameControl.invalid && nameControl.touched}"
+          type="text" 
+          placeholder="Name"
+          required
+        />
+        <input
+          formControlName="price"
+          class="input"
+          [ngClass]="{invalid: priceControl.invalid && priceControl.touched}"
+          type="number" 
+          placeholder="Price"
+          required
+        />
+      </div>
+      <div class="button-wrapper">
+        <button class="btn gradient full" (click)="createProduct()">Sign in</button>
+      </div>
+    </form>
+  </div>
 </div>
 <app-modal
   [isActive]="isModalActive"

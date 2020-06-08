@@ -1,26 +1,32 @@
 <div class="container">
-  <form class="form" [formGroup]="customerForm">
-    <h4>Create customer</h4>
-
-    <div class="wrapper">
-      <input
-        class="input"
-        type="text"
-        formControlName="name"
-        placeholder="Name"
-        required
-      />
-      <input
-        class="input"
-        type="email"
-        formControlName="email"
-        placeholder="Email"
-        required
-      />
-
-      <button class="button" (click)="createCustomer()">Create</button>
+  <div class="wrapper">
+    <div class="header">
+      <p>Create customer</p>
     </div>
-  </form>
+    <form [formGroup]="customerForm">
+      <div class="input-wrapper">
+        <input
+          formControlName="name"
+          class="input"
+          [ngClass]="{invalid: nameControl.invalid && nameControl.touched}"
+          type="text" 
+          placeholder="Name"
+          required
+        />
+        <input
+          formControlName="email"
+          class="input"
+          [ngClass]="{invalid: emailControl.invalid && emailControl.touched}"
+          type="email" 
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="button-wrapper">
+        <button class="btn gradient full" (click)="createCustomer()">Sign in</button>
+      </div>
+    </form>
+  </div>
 </div>
 <app-modal
   [isActive]="isModalActive"
