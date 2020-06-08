@@ -7,12 +7,16 @@
       <div class="input-wrapper">
         <input
           formControlName="username"
+          class="input"
+          [ngClass]="{invalid: usernameControl.invalid && usernameControl.touched}"
           type="text" 
           placeholder="Username"
           required
         />
         <input
           formControlName="password"
+          class="input"
+          [ngClass]="{invalid: passwordControl.invalid && passwordControl.touched}"
           type="password" 
           placeholder="Password"
           required

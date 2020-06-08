@@ -44,24 +44,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-  
-        input {
-          width: 100%;
-          padding: 10px;
-          margin-bottom: 10px;
-          background-color: transparent;
-          border: 0;
-          border-bottom: 1px solid gray;
-          color: #fff;
-
-          &::placeholder {
-            color: gray;
-          }
-
-          &:focus::placeholder {
-            color: transparent;
-          }
-        }
       }
 
       .button-wrapper {

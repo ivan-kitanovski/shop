@@ -11,22 +11,18 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   public loginForm = this.formBuilder.group(
     {
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['', [Validators.required, Validators.minLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
     },
     { updateOn: 'change' }
   );
 
-  get username(): string {
-    return this.loginForm.get('username').value;
+  get usernameControl() {
+    return this.loginForm.get('username');
   }
 
-  get password(): string {
-    return this.loginForm.get('password').value;
-  }
-
-  get isDisabled(): boolean {
-    return !this.username || !this.password;
+  get passwordControl() {
+    return this.loginForm.get('password');
   }
 
   constructor(
@@ -38,12 +34,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   public login() {
-    this.authApiService
-      .login({
-        username: this.username,
-        password: this.password,
-      })
-      .subscribe((user) => this.router.navigate(['products']));
+    this.usernameControl.markAsTouched();
+    this.passwordControl.markAsTouched();
+
+    if (this.loginForm.valid) {
+      this.authApiService
+        .login({
+          username: this.usernameControl.value,
+          password: this.passwordControl.value,
+        })
+        .subscribe((user) => this.router.navigate(['products']));
+    }
+
   }
 
   public onAlert(text: string) {
