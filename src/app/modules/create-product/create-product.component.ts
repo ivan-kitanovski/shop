@@ -12,8 +12,8 @@ import { Router } from '@angular/router';
 export class CreateProductComponent {
   public productForm = this.formBuilder.group(
     {
-      name: ['', Validators.required],
-      price: [null, Validators.required],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      price: [null, [Validators.required, Validators.min(1)]],
     },
     { updateOn: 'change' }
   );
