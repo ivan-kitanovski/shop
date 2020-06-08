@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { EventBroadcasterService } from '../../core/event-broadcaster/event-broadcaster.service';
 import { eventConstants } from '../../../constants/event.constants';
 import { AuthApiService } from '../../core/api/auth/auth-api.service';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 const ROUTES = [
   { name: 'Products', tree: ['/products'] },
@@ -17,7 +18,7 @@ const ROUTES = [
   styleUrls: ['./sidebar.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnDestroy {
   isActive = false;
   displayName = '';
   routes = ROUTES;
@@ -34,8 +35,11 @@ export class SidebarComponent implements OnInit {
 
     this.eventBroadcaster
       .on(eventConstants.OPEN_SIDEBAR)
+      .pipe(untilDestroyed(this))
       .subscribe((o) => (this.isActive = true));
   }
+
+  ngOnDestroy() {}
 
   closeSidebar(shouldLogout: boolean) {
     this.isActive = false;

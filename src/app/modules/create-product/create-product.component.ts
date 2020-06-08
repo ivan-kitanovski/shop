@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ProductApiService } from '../core/api/product/product-api.service';
 import { Product } from '../core/models/product.model';
 import { Router } from '@angular/router';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
   styleUrls: ['./create-product.component.scss'],
 })
-export class CreateProductComponent {
+export class CreateProductComponent implements OnDestroy {
   public productForm = this.formBuilder.group(
     {
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -33,6 +34,8 @@ export class CreateProductComponent {
     private router: Router
   ) {}
 
+  ngOnDestroy() {}
+
   createProduct() {
     this.nameControl.markAsTouched();
     this.priceControl.markAsTouched();
@@ -44,6 +47,7 @@ export class CreateProductComponent {
       });
       this.productApiService
         .createProduct(product)
+        .pipe(untilDestroyed(this))
         .subscribe((o) => (this.isModalActive = true));
     }
   }

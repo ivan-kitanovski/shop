@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../core/models/product.model';
 import { faTh, faList, faGripLines } from '@fortawesome/free-solid-svg-icons';
 import { LocalStorageService } from '../core/local-storage/local-storage.service';
 import { localStorageConstants } from '../../constants/localStorage.constants';
 import { ProductApiService } from '../core/api/product/product-api.service';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 const VIEW_MODE = {
   LIST: 'list',
@@ -22,7 +23,7 @@ const VIEW_MODE_TITLE = {
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
   public products: Product[] = [];
 
   faTh = faTh;
@@ -41,10 +42,12 @@ export class ProductsComponent implements OnInit {
     this.activeMode =
       this.localStorageService.getItem(localStorageConstants.VIEW_MODE) ||
       VIEW_MODE.MIX;
-    this.productApiService.getProducts().subscribe(p => {
+    this.productApiService.getProducts().pipe(untilDestroyed(this)).subscribe(p => {
       this.products = p;
     });
   }
+
+  ngOnDestroy() {}
 
   changeMode(mode: string) {
     this.activeMode = mode;
