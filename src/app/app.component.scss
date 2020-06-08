@@ -3,6 +3,10 @@
   width: 100vw;
 
   .routes {
-    height: 90vh;
+    height: 100%;
+
+    &.with-header {
+      height: 90vh;
+    }
   }
 }

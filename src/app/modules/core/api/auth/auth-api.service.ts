@@ -55,8 +55,6 @@ export class AuthApiService {
     this._session = null;
     this.session = null;
 
-    console.log(this.session);
-
     return of();
   }
 
