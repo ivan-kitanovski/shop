@@ -1,8 +1,9 @@
 <div class="container">
   <div class="header">
     <img src="../../../../assets/images/profile.png" />
+    <p class="name">{{ customer?.name }}</p>
+    <p class="email">{{ customer?.email }}</p>
   </div>
-  <h4>{{ customer?.name }}</h4>
   <app-product-list
     [products]="customer?.purchasedProducts || []"
     [canDelete]="false"
